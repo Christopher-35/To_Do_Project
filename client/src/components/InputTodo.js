@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from 'react';
 
+
 const InputTodo = () => {
   const [description, setDescription] = useState('');
 
@@ -8,7 +9,7 @@ const InputTodo = () => {
     e.preventDefault();
     try {
       const body = { description };
-      const response = await fetch('http://localhost:5000/todos', {
+      const response = await fetch(`http://localhost:5000/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(body)
@@ -16,7 +17,7 @@ const InputTodo = () => {
       window.location = '/';
       console.log('Res', response);
     } catch (err) {
-      console.err(err.message);
+      console.error(err.message);
     }
   }
   return (
